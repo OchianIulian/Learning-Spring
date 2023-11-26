@@ -1,6 +1,7 @@
 package com.example.second_bkd_project.student;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -48,7 +49,13 @@ public class Student {
         this.dob = dob;
     }
 
+    @JsonIgnore
     public Integer getAge() {
-        return Period.between(this.dob, LocalDate.now()).getYears();
+        if (this.dob != null) {
+            return Period.between(this.dob, LocalDate.now()).getYears();
+        } else {
+            // Handle the case when dob is null
+            return null; // or return a default value, depending on your logic
+        }
     }
 }
