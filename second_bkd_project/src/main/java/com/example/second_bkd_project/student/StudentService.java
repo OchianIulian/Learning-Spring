@@ -32,15 +32,6 @@ public class StudentService {
         studentRepository.save(student);
     }
 
-    public void deleteStudentByEmail(String email) {
-        Optional<Student> student = studentRepository.findStudentsByEmail(email);
-        if(student.isPresent()){
-            //studentRepository.delete(student);
-            System.out.println("The student exists");
-        } else {
-            System.out.println("The student doesn't exist");
-        }
-    }
 
     public void deleteStudentById(Long studentId) {
         boolean exists = studentRepository.existsById(studentId);
