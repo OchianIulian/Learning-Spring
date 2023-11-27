@@ -1,5 +1,6 @@
 package com.example.second_bkd_project.student;
 
+import ch.qos.logback.core.pattern.parser.OptionTokenizer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,5 +30,24 @@ public class StudentService {
             throw new IllegalStateException("email taken");
         }
         studentRepository.save(student);
+    }
+
+    public void deleteStudentByEmail(String email) {
+        Optional<Student> student = studentRepository.findStudentsByEmail(email);
+        if(student.isPresent()){
+            //studentRepository.delete(student);
+            System.out.println("The student exists");
+        } else {
+            System.out.println("The student doesn't exist");
+        }
+    }
+
+    public void deleteStudentById(Long studentId) {
+        boolean exists = studentRepository.existsById(studentId);
+        if(!exists){
+            throw new IllegalStateException("student with id" + studentId + "does not exists");
+        } else {
+            studentRepository.deleteById(studentId);
+        }
     }
 }
