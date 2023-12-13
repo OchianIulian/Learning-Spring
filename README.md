@@ -23,10 +23,10 @@ This API provides endpoints for performing CRUD operations. It utilizes Spring B
 
 ## Endpoints
 
-GET /api/v1/student: Retrieves all students.
-POST /api/v1/student: Registers a new student.
-DELETE /api/v1/student/{studentId}: Deletes a student by ID.
-PUT /api/v1/student/{studentId}: Updates a student's details by ID.
+1. **GET /api/v1/student:** Retrieves all students.
+2. **POST /api/v1/student:** Registers a new student.
+3. **DELETE /api/v1/student/{studentId}:** Deletes a student by ID.
+4. **PUT /api/v1/student/{studentId}:** Updates a student's details by ID.
 
 ## Usage
 
